@@ -7,7 +7,6 @@ import java.io.File;
  * PC : MacBook Pro (16-inch, 2019)
  * OS Version : macOS Catalina - 10.15.7(19H2)
  * */
-
 public class FolderUtils {
 
     /* Folder Create */
@@ -43,7 +42,6 @@ public class FolderUtils {
             for (int j = 0; j < folder_list.length; j++) {
                 folder_list[j].delete(); //파일 삭제
                 System.out.println("파일이 삭제되었습니다.");
-
             }
 
             if(folder_list.length == 0 && Folder.isDirectory()){
@@ -68,6 +66,8 @@ public class FolderUtils {
                 System.out.println("파일이 삭제되었습니다.");
 
             }
+
+            break;
         }
     }
 }
