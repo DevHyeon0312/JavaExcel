@@ -1,6 +1,7 @@
 import Data.User;
 import Folder.FolderUtils;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -20,20 +21,31 @@ public class MainUI {
 
         //Delete Files
 //        FolderUtils.deleteFiles();
+
+
+        //CreateData
+        ArrayList<User> userList = createList();
+        for (User user : userList) {
+            System.out.println(user.toString());
+        }
+
     }
 
-//    public static ArrayList<User> createList() {
-//        ArrayList<User> users = new ArrayList<>();
-//        for (int i=0; i<10; i++) {
-//            User user = new User();
-//            user.setUserUnqId("KEY"+i);
-//            user.setUserName("DevHyeon"+i);
-//            user.setUserAge(20+i);
-//            user.setUserGender("Gender");
-//            user.setUserBirth("birth:"+i);
-//        }
-//        return users;
-//    }
+    /* Create Data */
+    public static ArrayList<User> createList() {
+        ArrayList<User> users = new ArrayList<>();
+        for (int i=0; i<10; i++) {
+            User user = new User();
+            user.setUserUnqId("KEY"+i);
+            user.setUserName("DevHyeon"+i);
+            user.setUserAge(20+i);
+            user.setUserGender("Gender");
+            user.setUserBirth("birth:"+i);
+            users.add(user);
+        }
+        System.out.println("create.");
+        return users;
+    }
 }
 
 
