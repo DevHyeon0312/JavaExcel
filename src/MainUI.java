@@ -1,4 +1,5 @@
 import Data.User;
+import Excel.ExcelUtils;
 import Folder.FolderUtils;
 
 import java.lang.reflect.Array;
@@ -22,13 +23,14 @@ public class MainUI {
         //Delete Files
 //        FolderUtils.deleteFiles();
 
-
         //CreateData
         ArrayList<User> userList = createList();
         for (User user : userList) {
             System.out.println(user.toString());
         }
 
+        //CreateExcel
+        ExcelUtils.ExcelSave("SAMPLE",userList);
     }
 
     /* Create Data */

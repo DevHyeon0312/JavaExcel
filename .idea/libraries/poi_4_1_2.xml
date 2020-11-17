@@ -7,6 +7,7 @@
       <root url="jar://$PROJECT_DIR$/../UsedLib/poi-4.1.2/poi-ooxml-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/../UsedLib/poi-4.1.2/poi-ooxml-schemas-4.1.2.jar!/" />
       <root url="jar://$PROJECT_DIR$/../UsedLib/poi-4.1.2/poi-scratchpad-4.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../UsedLib/poi-4.1.2/xmlbeans-3.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
