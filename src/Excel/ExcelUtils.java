@@ -27,7 +27,7 @@ public class ExcelUtils {
             Sheet sheetA = workbook.createSheet("All Data"); // Excel Sheet 생성
             Sheet sheetB = workbook.createSheet("ID Data"); // Excel Sheet 생성
 
-            //헤더를 만드는 call
+            //Excel Write Header
             try {
                 HeaderASetting(workbook,sheetA,A_headers);
                 HeaderBSetting(workbook,sheetB,B_headers);
@@ -35,9 +35,10 @@ public class ExcelUtils {
                 e.printStackTrace();
             }
 
-            //바디를 만드는 call
+            //Excel Write Body
             try {
-                //BodyASetting(workbook,sheetA,datas);
+                BodyASetting(workbook,sheetA,datas);
+                BodyBSetting(workbook,sheetB,datas);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -181,4 +182,67 @@ public class ExcelUtils {
         }
     }
 
+
+    public static void BodyASetting(Workbook workbook, Sheet sheet, ArrayList<User> body) {
+        /** 스타일 설정 */
+        //스타일 설정
+        CellStyle styleOfBody = workbook.createCellStyle();
+        //정렬
+        styleOfBody.setVerticalAlignment(VerticalAlignment.CENTER);
+        //테두리 라인
+        styleOfBody.setBorderRight(BorderStyle.THIN);
+        styleOfBody.setBorderLeft(BorderStyle.THIN);
+        styleOfBody.setBorderTop(BorderStyle.THIN);
+        styleOfBody.setBorderBottom(BorderStyle.THIN);
+
+        for (int rownum = 1; rownum < body.size(); rownum++) { // data row 개수 만큼 반복해서 처리
+            Row row = sheet.createRow(rownum); // Excel Row 생성
+            User user = body.get(rownum-1);
+            int cellnum = 0;
+
+            Cell cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserUnqId());
+            cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserName());
+            cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserAge());
+            cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserGender());
+            cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserBirth());
+
+            for (int i=0; i<cellnum; i++) {
+                Cell cell2 = row.getCell(i);
+                cell2.setCellStyle(styleOfBody); //스타일 적용
+            }
+        }
+    }
+    public static void BodyBSetting(Workbook workbook, Sheet sheet, ArrayList<User> body) {
+        /** 스타일 설정 */
+        //스타일 설정
+        CellStyle styleOfBody = workbook.createCellStyle();
+        //정렬
+        styleOfBody.setVerticalAlignment(VerticalAlignment.CENTER);
+        //테두리 라인
+        styleOfBody.setBorderRight(BorderStyle.THIN);
+        styleOfBody.setBorderLeft(BorderStyle.THIN);
+        styleOfBody.setBorderTop(BorderStyle.THIN);
+        styleOfBody.setBorderBottom(BorderStyle.THIN);
+
+        for (int rownum = 1; rownum < body.size(); rownum++) { // data row 개수 만큼 반복해서 처리
+            Row row = sheet.createRow(rownum); // Excel Row 생성
+            User user = body.get(rownum-1);
+            int cellnum = 0;
+
+            Cell cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserUnqId());
+            cell = row.createCell(cellnum++);
+            cell.setCellValue(user.getUserName());
+
+            for (int i=0; i<cellnum; i++) {
+                Cell cell2 = row.getCell(i);
+                cell2.setCellStyle(styleOfBody); //스타일 적용
+            }
+        }
+    }
 }
